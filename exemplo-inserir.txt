@@ -1,0 +1,47 @@
+View
+
+<form method="post" action="/contato">
+    {{ csrf_field() }}
+        <input type="text" name="txNome" />
+        <input type="text" name="txEmail" />
+        <input type="text" name="txAssunto" />
+        <input type="text" name="txMensagem" />
+
+        <input type="submit" value="Salvar" />
+    </form>
+
+---------------------------------------------------------
+
+Controller - http - auth - (nome)controller
+
+public function store(Request $request)
+    {    
+        $contato = new Contato();
+
+        $contato->nome = $request->txNome;
+        $contato->email = $request->txEmail;
+        $contato->assunto = $request->txAssunto;
+        $contato->mensagem = $request->txMensagem;
+
+        $contato->save();
+
+        return redirect('/contato');
+    }
+
+------------------------------------------------------
+
+Model -- config - views - contato
+
+protected $fillable = ['idContato','nome','email','assunto','mensagem'];
+
+public $timestamps = false;
+
+-----------------------------------------------------------
+Rota -- routes - web
+Route::post('/contato','ContatoController@store');
+
+
+
+
+
+

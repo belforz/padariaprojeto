@@ -1,0 +1,21 @@
+View
+
+ <h1> Contatos existentes </h1>
+    
+    @foreach($contatos as $c)
+        <h1> {{$c->idContato}}</h1>
+        <p> {{$c->nome}} </p>
+    @endforeach
+
+
+--------------------------------
+
+Controller
+
+public function index()
+    {
+        $contatos = Contato::all();
+
+        //          nome da view       atributo q contém a resp da consulta
+        return view('contato',compact('contatos'));
+    }

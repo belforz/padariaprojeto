@@ -1,0 +1,41 @@
+cd - navega entre diretórios
+
+cd\ - vai para a unidade raiz
+
+mkdir [nome da pasta] - cria um diretório
+
+cd [nome diretorio] - acessa um diretório
+
+composer create-project laravel/laravel [nome_do_projeto] - cria um projeto em laravel
+
+code . - Abre o diretório pelo VSCode
+
+php artisan serve - inicia o servidor laravel
+
+php artisan 
+
+Abrir o navegador e digitar localhost:8000
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Para criar ou editar uma view: Resources -> views
+
+Para criar ou editar uma rota -> Routes -> web.php
+
+Colocar os arquivos css, imagens js -> public
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+php artisan make:controller [Nome do controller] --resource  - Cria um controller (O --resource serve para podermos usar mais facilmente o CRUD)
+php artisan make:model [Nome da model] - - Cria uma model (O nome tem que começar com letra maiúscula))
+
+
+
+1- Ter o banco de dados e as tabelas com registros;
+2- Passar os dados de configuração do banco
+3- Configurar o "model";
+4- Configurar o "controller";
+5- Configurar a "rota";
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+return view('contato', compact('contatos'));

@@ -1,0 +1,13 @@
+No repositório, localizar o arquivo "composer.json" e copiar todo o código desse arquivo
+
+Clona o repositório
+
+Localizar o arquivo "composer.json" no repositório clonado e substituir seu código pelo código copiado no repositório no Github
+
+Na pasta clonada, criar um arquivo chamado ".env"
+
+Copiar os dados do .env.example e colar no .env que foi criado
+
+No CMD, acessar o repositório do projeto e inserir as seguintes linhas de comando:
+	composer install
+	php artisan key:generate

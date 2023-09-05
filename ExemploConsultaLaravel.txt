@@ -1,0 +1,76 @@
+Para limpar o cache do laravel: php artisan cache:clear
+
+1 - Acessar o wampp ou xampp 
+2 - http://localhost/phpmyadmin
+
+nome do banco de dados: bdaula
+
+create table tbContato(
+    idContato int PRIMARY key AUTO_INCREMENT,
+    nome varchar(40),
+    email varchar(40),   
+    assunto varchar(40),   
+    mensagem varchar(500)
+);
+
+insert into tbContato values 
+	(null, 'João', 'joao@gmail.com','assunto do joao','mensagem do joao'),
+	(null, 'Maria', 'maria@gmail.com','assunto da maria','mensagem da maria');
+
+------------------------------------------------------------------------------
+3 - Abrir o arquivo .env 
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=bdaula
+DB_USERNAME=root
+DB_PASSWORD=
+
+------------------------------------------------------------------------------
+4 - Criar a model
+No prompt: php artisan make:model Contato
+Os models ficam dentro da pasta app
+
+Exemplo código model
+
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Contato extends Model
+{
+    protected $table = 'tbContato';
+}
+
+-------------------------------------------------
+5- Criar o controller
+
+No prompt: php artisan make:controller ContatoController --resource
+Os controllers ficam dentro de app->Http->Controllers
+
+use App\Contato;
+
+ $contatos = Contato::all();
+
+        foreach($contatos as $c){
+            echo "Id ". $c->idContato . "<br />";            
+            echo "Nome ".$c->nome . "<br />"; 
+            echo "E-mail ".$c->email . "<br />";             
+            echo "Assunto ".$c->assunto . "<br />";  
+            echo "Mensagem".$c->mensagem . "<br />"; 
+            echo "<br />"; 
+        }
+-----------------------
+6 Criar uma rota para o método index do ContatoController
+
+As rotas ficam em routes->arquivo web.php
+
+Route::get('/contato','ContatoController@index');
+
+-------------------------
+
+
+
