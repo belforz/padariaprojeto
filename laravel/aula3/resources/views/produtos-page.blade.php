@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Baker - Bakery Website Template</title>
+    <title>Padaria Camargo</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -39,36 +39,10 @@
     </div>
     <!-- Spinner End -->
 
-
-    <!-- Topbar Start -->
-    <div class="container-fluid top-bar bg-dark text-light px-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="row gx-0 align-items-center d-none d-lg-flex">
-            <div class="col-lg-6 px-5 text-start">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="small text-light" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="small text-light" href="#">Career</a></li>
-                    <li class="breadcrumb-item"><a class="small text-light" href="#">Terms</a></li>
-                    <li class="breadcrumb-item"><a class="small text-light" href="#">Privacy</a></li>
-                </ol>
-            </div>
-            <div class="col-lg-6 px-5 text-end">
-                <small>Follow us:</small>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn-lg-square text-primary pe-0" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
         <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="text-primary m-0">Baker</h1>
+            <h1 class="text-primary m-0">Padaria Camargo</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -76,26 +50,22 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
-                <a href="product.html" class="nav-item nav-link active">Products</a>
+                <a href="service.html" class="nav-item nav-link">Serviços</a>
+                <a href="product.html" class="nav-item nav-link active">Produtos</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paginas</a>
                     <div class="dropdown-menu m-0">
                         <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="contact.html" class="nav-item nav-link">Contato</a>
+                <a href="about.html" class="nav-item nav-link">Login</a>
             </div>
             <div class=" d-none d-lg-flex">
                 <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
-                    <i class="fa fa-phone text-primary"></i>
-                </div>
-                <div class="ps-3">
-                    <small class="text-primary mb-0">Call Us</small>
-                    <p class="text-light fs-5 mb-0">+012 345 6789</p>
+                <a href="about.html" class="nav-item nav-link">Login</a>
                 </div>
             </div>
         </div>
@@ -127,15 +97,7 @@
                     <div class="col-lg-6">
                         <h1 class="display-4 text-light mb-0">The Best Bakery In Your City</h1>
                     </div>
-                    <div class="col-lg-6 text-lg-end">
-                        <div class="d-inline-flex align-items-center text-start">
-                            <i class="fa fa-phone-alt fa-4x flex-shrink-0"></i>
-                            <div class="ms-4">
-                                <p class="fs-5 fw-bold mb-0">Call Us</p>
-                                <p class="fs-1 fw-bold mb-0">+012 345 6789</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
@@ -151,7 +113,8 @@
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('img/bolo-1.jpg') }}" alt="Example Image">
+>
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -162,11 +125,11 @@
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99</div>
-                            <h3 class="mb-3">Bread</h3>
+                            <h3 class="mb-3">Refrigerante</h3>
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-2.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('img/refri-1.jpg') }}" alt="Example Image">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -177,11 +140,27 @@
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99</div>
-                            <h4 class="mb-3">Cookies</h4>
+                            <h4 class="mb-3">Salgado</h4>
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-3.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('img/salgado-2.jpg') }}" alt="Example Image">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99</div>
+                            <h4 class="mb-3">Soda</h4>
+                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                        <img class="img-fluid" src="{{ asset('img/soda-1.jpg') }}" alt="Example Image">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -230,7 +209,8 @@
                     <h4 class="text-light mb-4">Photo Gallery</h4>
                     <div class="row g-2">
                         <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
+                            <img class="img-fluid bg-light rounded p-1" src="{{ asset('img/bolo-1.jpg') }}" alt="Example Image">
+ >
                         </div>
                         <div class="col-4">
                             <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
@@ -260,12 +240,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                    &copy; <a href="#">Padaria Camargo</a>, All Right Reserved.
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                </div>
+                
             </div>
         </div>
     </div>
