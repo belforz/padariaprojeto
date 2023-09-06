@@ -28,3 +28,4 @@ Route::post('/produtos', 'ProdutosController@store');
 Route::get('/produtos-page', function () {
     return view('produtos-page');
 });
+Route::delete('/produtos-page', 'DeleteController@delete');

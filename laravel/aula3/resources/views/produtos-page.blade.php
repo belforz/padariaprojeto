@@ -167,6 +167,11 @@
                         </div>
                     </div>
                 </div>
+                <form action="{{ route('produtos-page/delete/id', ['id' => $id]) }}" method="POST">
+                    @csrf
+                 @method('DELETE')
+                    <button type="submit">Remove</button>
+                </form>
             </div>
         </div>
     </div>
