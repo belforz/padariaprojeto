@@ -76,12 +76,12 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-6 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center pt-5 pb-3">
-            <h1 class="display-4 text-white animated slideInDown mb-3">Products</h1>
+            <h1 class="display-4 text-white animated slideInDown mb-3">Produtos</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Products</li>
+                    <li class="breadcrumb-item"><a class="text-white" href="/home">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="/produtos">Adicione um Produto</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Produto</li>
                 </ol>
             </nav>
         </div>
@@ -95,7 +95,7 @@
             <div class="bg-primary text-light rounded-bottom p-5 my-6 mt-0 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
-                        <h1 class="display-4 text-light mb-0">The Best Bakery In Your City</h1>
+                        <h1 class="display-4 text-light mb-0">A melhor padaria da cidade</h1>
                     </div>
                     
                 </div>
@@ -167,11 +167,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{ route('produtos-page/delete/id', ['id' => $id]) }}" method="POST">
-                    @csrf
-                 @method('DELETE')
-                    <button type="submit">Remove</button>
-                </form>
+                
             </div>
         </div>
     </div>

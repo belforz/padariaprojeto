@@ -28,6 +28,7 @@ class ProdutosController extends Controller
 
         return view('/produtos', compact('produtos'));
 
+
     }
 
     /**
