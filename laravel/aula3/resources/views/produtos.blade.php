@@ -49,23 +49,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="service.html" class="nav-item nav-link">Serviços</a>
-                <a href="product.html" class="nav-item nav-link active">Produtos</a>
+            <a href="/index" class="nav-item nav-link">Home</a>
+                <a href="/serviços" class="nav-item nav-link">Serviços</a>
+                <a href="/produtos" class="nav-item nav-link active">Produtos</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Paginas</a>
                     <div class="dropdown-menu m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="team.html" class="dropdown-item">Nosso Time</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contato</a>
-                <a href="about.html" class="nav-item nav-link">Login</a>
             </div>
             <div class=" d-none d-lg-flex">
                 <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
-                <a href="about.html" class="nav-item nav-link">Login</a>
+                <a href="login" class="nav-item nav-link">Login</a>
                 </div>
             </div>
         </div>
@@ -90,7 +89,7 @@
 
 
     <!-- Product Start -->
-    <div class="container-xxl bg-light my-6 py-6 pt-0" style="margin: 12rem 0;">
+    <div class="container-xxl bg-light my-6 py-6 pt-0" >
         <div class="container">
             <div class="bg-primary text-light rounded-bottom p-5 my-6 mt-0 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="row g-4 align-items-center">
@@ -114,7 +113,17 @@
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Descrição<span class="text-danger"> *</span></label> <input type="text" id="lname" name="txDescricao" placeholder="Descricao" onblur="validate(2)"> </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Categoria<span class="text-danger"> *</span></label> <input type="text" id="email" name="txCategoria" placeholder="Categoria" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"  id="email"onblur="validate(3)">Categoria<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="categoria" name="txCategoria">
+            <option value="Salgado">Salgado</option>
+            <option value="Doce">Doce</option>
+            <option value="Bebida">Bebida</option>
+            <option value="Massa">Massa</option>
+            <!-- Adicione outras opções do ENUM aqui -->
+        </select>
+                    
+                    </div>
+                       
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade<span class="text-danger"> *</span></label> <input type="text" id="mob" name="txQuantidade" placeholder="Quantidade" onblur="validate(4)"> </div>
                     </div>
                     <div class="row justify-content-between text-left">
@@ -144,15 +153,14 @@
         <th scope="row">{{$p->idProduto}}</th>
         <td>{{$p->Pnome}}</td>
         <td>{{$p->Descricao}}</td>
-        <td>{{$p->Categoria}}</td>
-        <td>{{$p->Quantidade}}</td>
-        <td>{{$p->Valor_Inicial}}</td>
+        <td>{{$p->categoria}}</td>
+        <td>{{$p->quantidade}}</td>
+        <td>{{$p->valor_inicial}}</td>
       </tr>
-
-      
     @endforeach
   </tbody>
 </table>
+
 
             </div>
         </div>
@@ -161,81 +169,6 @@
     </div>
     <!-- Product End -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Office Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Photo Gallery</h4>
-                    <div class="row g-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="{{ asset('img/bolo-1.jpg') }}" alt="Example Image">
- >
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="img/product-2.jpg" alt="Image">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="img/product-3.jpg" alt="Image">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="img/product-1.jpg" alt="Image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">Padaria Camargo</a>, All Right Reserved.
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
 
 
     <!-- Back to Top -->

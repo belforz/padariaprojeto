@@ -16,6 +16,7 @@ class ProdutosController extends Controller
     public function index()
     {
         $produtos = Produtos::all();
+      
 
         // foreach($contatos as $c){
         //     echo "Id ". $c->idContato . "<br />";            
@@ -26,7 +27,7 @@ class ProdutosController extends Controller
         //     echo "<br />"; 
         // }
 
-        return view('/produtos', compact('produtos'));
+        return view('produtos', compact('produtos'));
 
 
     }
@@ -53,7 +54,7 @@ class ProdutosController extends Controller
 
         $produtos->Pnome = $request->txPnome;
         $produtos->Descricao = $request->txDescricao;
-        //$produtos ->Categoria = $request->txCategoria;
+        $produtos ->Categoria = $request->txCategoria;
         $produtos->quantidade = $request->txQuantidade;
         $produtos->valor_inicial = $request->txValor_Inicial;
         

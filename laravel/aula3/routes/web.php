@@ -29,3 +29,13 @@ Route::get('/produtos-page', function () {
     return view('produtos-page');
 });
 Route::delete('/produtos-page', 'DeleteController@delete');
+
+Route::get('login', function () {
+    return view('login');
+});
+
+// Show the login form
+Route::get('/login', 'LoginController@login');
+
+// Handle the login form submission
+Route::post('/login', 'LoginController@login');
