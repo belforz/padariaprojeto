@@ -107,13 +107,13 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="product-item d-flex flex-column rounded overflow-hidden h-100">
                         <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">=R$20</div>
+                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">R$20</div>
                             <h3 class="mb-3">Bolo</h3>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            
                         </div>
                         <div class="position-relative mt-auto">
                             <img class="img-fluid" src="{{ asset('img/bolo-1.jpg') }}" alt="Example Image">
->
+
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -125,7 +125,7 @@
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">R$8</div>
                             <h3 class="mb-3">Refrigerante</h3>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            
                         </div>
                         <div class="position-relative mt-auto">
                         <img class="img-fluid" src="{{ asset('img/refri-2.jpg') }}" alt="Example Image">
@@ -140,7 +140,7 @@
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">R$9</div>
                             <h4 class="mb-3">Salgado</h4>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            
                         </div>
                         <div class="position-relative mt-auto">
                         <img class="img-fluid" src="{{ asset('img/salgado-2.jpg') }}" alt="Example Image">
@@ -156,7 +156,7 @@
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11</div>
                             <h4 class="mb-3">Soda</h4>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            
                         </div>
                         <div class="position-relative mt-auto">
                         <img class="img-fluid" src="{{ asset('img/soda-2.jpg') }}" alt="Example Image">
@@ -171,7 +171,7 @@
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">R$15</div>
                             <h4 class="mb-3">Pizza</h4>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            
                         </div>
                         <div class="position-relative mt-auto">
                         <img class="img-fluid" src="{{ asset('img/pizza-1.jpg') }}" alt="Example Image">
@@ -186,7 +186,7 @@
                         <div class="text-center p-4">
                             <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">R$12</div>
                             <h4 class="mb-3">Verdinha</h4>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            
                         </div>
                         <div class="position-relative mt-auto">
                         <img class="img-fluid" src="{{ asset('img/verdinha-1.jpg') }}" alt="Example Image">
@@ -196,6 +196,31 @@
                         </div>
                     </div>
                 </div>
+
+               
+               
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+    @foreach($produtos as $p)
+        <div class="product-item d-flex flex-column rounded overflow-hidden h-100">
+            <div class="text-center p-4">
+                <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">{{ $p->valor_inicial }}</div>
+                <h4 class="mb-3">{{ $p->Pnome }}</h4>
+            </div>
+            <div class="position-relative mt-auto">
+                <img class="img-fluid" src="{{ asset('storage/uploads/' . $p->imagem) }}" alt="Imagem do Produto">
+                <div class="product-overlay">
+                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                </div>
+            </div>
+
+        </div>
+    @endforeach
+    </div>
+
+
+
+               
+
             </div>
         </div>
     </div>
@@ -221,6 +246,7 @@
 
 <!-- Template JavaScript -->
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/endpoint.js') }}"></script>
 
 </body>
 

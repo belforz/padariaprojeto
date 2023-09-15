@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Produtos;
 
-
-class ProdutosController extends Controller
+class ViewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +14,9 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        $produtos = Produtos::all();
-      
+        $produtos = Produtos::select('Pnome', 'valor_inicial')->get();
 
-        // foreach($contatos as $c){
-        //     echo "Id ". $c->idContato . "<br />";            
-        //     echo "Nome ".$c->nome . "<br />"; 
-        //     echo "E-mail ".$c->email . "<br />";             
-        //     echo "Assunto ".$c->assunto . "<br />";  
-        //     echo "Mensagem".$c->mensagem . "<br />"; 
-        //     echo "<br />"; 
-        // }
-
-        return view('produtos', compact('produtos'));
-
-
+return view('produtos-page', compact('produtos'));
     }
 
     /**
@@ -50,24 +37,7 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        $produtos = new Produtos();
-        $imagem = $request->file('imagem');
-        $nomeArquivo = uniqid() . '.' . $imagem->getClientOriginalExtension();
-        $caminho = $imagem->storeAs('uploads', $nomeArquivo);
-
-        $produtos->Pnome = $request->txPnome;
-        $produtos->Descricao = $request->txDescricao;
-        $produtos ->Categoria = $request->txCategoria;
-        $produtos->quantidade = $request->txQuantidade;
-        $produtos->valor_inicial = $request->txValor_Inicial;
-        $produtos->imagem = $caminho;
-        
-        
-
-
-        $produtos->save();
-        
-        return redirect('/produtos-page');
+        //
     }
 
     /**

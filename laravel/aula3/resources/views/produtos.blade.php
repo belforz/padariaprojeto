@@ -106,7 +106,7 @@
             <h3>Cadastre um produto</h3>
             <p class="blue-text">Crie um produto<br> e tenha controle do seu estoque</p>
             <div class="card">
-                <form class="form-card" action="/produtos" method="post">
+                <form class="form-card" action="/produtos" method="post" enctype="multipart/form-data">
                     <div class="row justify-content-between text-left">
                     {{csrf_field()}}
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome do Produto<span class="text-danger"> *</span></label> <input type="text" id="fname" name="txPnome" placeholder="Produto" onblur="validate(1)"> </div>
@@ -129,7 +129,10 @@
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Valor<span class="text-danger"> *</span></label> <input type="text" id="job" name="txValor_Inicial" placeholder="Valor" onblur="validate(5)"> </div>
                     </div>
-                    
+                    <div class="form-group col-sm-6 flex-column d-flex">
+        <label class="form-control-label px-3">Imagem do Produto<span class="text-danger"> *</span></label>
+        <input type="file" id="imagem" name="imagem" accept="image/*">
+    </div>
                     <div class="row justify-content-end">
                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" value="Salvar">Cadastrar Produto</button> </div>
                     </div>
@@ -145,6 +148,8 @@
       <th scope="col">Categoria</th>
       <th scope="col">Quantidade</th>
       <th scope="col">Valor</th>
+      <th scope="col">Imagem</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -156,6 +161,7 @@
         <td>{{$p->categoria}}</td>
         <td>{{$p->quantidade}}</td>
         <td>{{$p->valor_inicial}}</td>
+        <td><img src="{{ asset('storage/uploads/' . $p->imagem)}}" alt="Imagem do Produto"></td>
       </tr>
     @endforeach
   </tbody>
@@ -187,6 +193,7 @@
 
 <!-- Template JavaScript -->
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/endpoint.js') }}"></script>
 
 </body>
 

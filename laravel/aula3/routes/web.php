@@ -23,11 +23,24 @@ Route::get('index', function () {
 
 Route::get('/produtos','ProdutosController@index');
 
+Route::get('/produtos-page','ViewController@index');
+
 Route::post('/produtos', 'ProdutosController@store');
+
+Route::get('upload/{filename}',function($filename) {
+    $path = storage_path('app/uploads/'. $filename);
+
+    if (!file_exists($path)){
+        abort(404);
+
+    }
+return response()->file($path);
+})->where ('filename','(.*)');
 
 Route::get('/produtos-page', function () {
     return view('produtos-page');
 });
+
 Route::delete('/produtos-page', 'DeleteController@delete');
 
 Route::get('login', function () {
@@ -39,3 +52,5 @@ Route::get('/login', 'LoginController@login');
 
 // Handle the login form submission
 Route::post('/login', 'LoginController@login');
+
+
