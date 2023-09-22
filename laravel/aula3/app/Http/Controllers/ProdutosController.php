@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Produtos;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+
 
 class ProdutosController extends Controller
 {
@@ -15,7 +18,12 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        $produtos = Produtos::all();
+        //$produtos = Produtos::all();
+        //$produtos = DB::table('produto')->orderBy('valor_inicial','desc')->get();
+        //$produtos = DB::table('tbProduto')->orderBy('valor-inicial','asc')->get();
+
+        $sql = "select * from produto";
+        $produtos = DB::select($sql);
       
 
         // foreach($contatos as $c){
@@ -31,6 +39,13 @@ class ProdutosController extends Controller
 
 
     }
+
+    public function index2()
+    {
+        $produtos = Produto::all();        
+        return $produtos;
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -67,7 +82,7 @@ class ProdutosController extends Controller
 
         $produtos->save();
         
-        return redirect('/produtos-page');
+        return redirect('/produtos');
     }
 
     /**
@@ -113,5 +128,13 @@ class ProdutosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function json(){
+        $response = Http::get('https://viacep.com.br/ws/01001000/json/');
+        $data = $response->json();
+
+        return view('test_view', compact('data'));
+
     }
 }

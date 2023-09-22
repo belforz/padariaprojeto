@@ -53,4 +53,16 @@ Route::get('/login', 'LoginController@login');
 // Handle the login form submission
 Route::post('/login', 'LoginController@login');
 
+use Illuminate\Support\Facades\Http;
+
+Route::get('/minha-rota', function () {
+    $response = Http::get('https://exemplo.com/api/dados');
+    $data = $response->json();
+    
+    // Faça algo com os dados aqui
+    
+    return view('minha_view', compact('data'));
+});
+
+
 
