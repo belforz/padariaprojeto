@@ -164,6 +164,7 @@
         <td>{{$p->quantidade}}</td>
         
         <td><img src="{{ asset('storage/uploads/' . $p->imagem)}}" alt="Imagem do Produto"></td>
+        
       </tr>
     @endforeach
   </tbody>

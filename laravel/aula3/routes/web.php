@@ -66,3 +66,18 @@ Route::get('/minha-rota', function () {
 
 
 
+// Rota para a deleção e a nova mostra do produto
+
+Route::get('/produto-escolhido','ProdutosController@index2');
+
+Route::get('/produto-escolhido/excluir/{id}','ProdutosController@destroy');
+
+Route::get('/produto-escolhido/escolhido/{id}','ProdutosController@show');
+
+
+Route::get('/download-csv', 'ProdutosController@download');
+
+
+
+
+

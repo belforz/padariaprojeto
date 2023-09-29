@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/produto-escolhido','ProdutosController@indexApi');
+Route::delete('/produto-escolhido/excluir/{id}','ProdutosController@destroyApi');
+Route::put('/produto-escolhido/alterar/{id}','ProdutosController@updateApi');
+
