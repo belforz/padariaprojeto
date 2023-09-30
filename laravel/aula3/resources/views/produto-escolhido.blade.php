@@ -89,6 +89,7 @@
 
 
     <!-- Product Start -->
+    
     <div class="container-xxl bg-light my-6 py-6 pt-0">
         <div class="container">
             <div class="bg-primary text-light rounded-bottom p-5 my-6 mt-0 wow fadeInUp" data-wow-delay="0.1s">
@@ -213,26 +214,34 @@
         <td><a href="/produto-escolhido/excluir/{{$p->idProduto}}">Excluir</a></td>
     </tr>
 @endforeach
-               
-<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+
+
+<div class="div-dinamica" style="display: flex; justify-content: space-between; gap:20px;">
     @foreach($produtos as $p)
-        <div class="product-item d-flex flex-column rounded overflow-hidden h-100">
-            <div class="text-center p-4">
-                <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">{{ $p->valor_inicial }}</div>
-                <h4 class="mb-3">{{ $p->Pnome }}</h4>
-            </div>
-            <div class="position-relative mt-auto">
-                <img class="img-fluid" src="{{ asset('storage/uploads/' . $p->imagem) }}" alt="Imagem do Produto">
-                <div class="product-overlay">
-                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="product-item d-flex flex-column rounded overflow-hidden h-100">
+                <div class="text-center p-4">
+                    <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">{{ $p->valor_inicial }}</div>
+                    <h4 class="mb-3">{{ $p->Pnome }}</h4>
+                </div>
+                <div class="position-relative mt-auto">
+                    <img class="img-fluid" src="{{ asset('storage/uploads/'.$p->imagem) }}" alt="Imagem do Produto">
+                    <div class="product-overlay">
+                        <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i>
+                        <a href="/produto-escolhido/escolhido/{{$p->idProduto}}">Visualizar</a> |
+                                <a href="/produto-escolhido/excluir/{{$p->idProduto}}">Excluir</a></a>
+                    </div>
                 </div>
             </div>
-            <div>
-                <table class="table">
+        </div>
+    @endforeach
+
+</div>
+                 <!-- <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Valor</th>
-                            <th scope="col">#</th>
+                            
                             <th scope="col">Nome do Produto</th>
                             <th scope="col">Descrição</th>
                             <th scope="col">Categoria</th>
@@ -240,8 +249,8 @@
                             <th scope="col">Imagem</th>
                             <th scope="col">Ação</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                    </thead> -->
+                    <!-- <tbody>
                         <tr>
                             <td>{{ $p->valor_inicial }}</td>
                             <td>{{ $p->idProduto }}</td>
@@ -256,14 +265,7 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
-            </div>
-        </div>
-    @endforeach
-</div>
-
-<!-- ajeitar dps em relação ao download de excel de produtos cadastrados
-<a href="/download-csv"> Downloads dos produtos em CSV </a>
+                    <a href="/download-csv"> Downloads dos produtos em CSV </a>
 
 <br />
 
@@ -271,7 +273,7 @@
 
     {{$p->idProduto}}
     <a href="/produto/escolhido/{{$p->idProduto}}"> 
-        {{$p->produto}}
+        {{$p->produtos}}
     </a>
     {{$p->descrProduto}}
     {{$p->valor}}
@@ -279,14 +281,10 @@
     <a href="/produto/excluir/{{$p->idProduto}}"> Excluir </a>
     <br />
 @endforeach -->
+                <!-- </table> --> 
+          
 
 
-
-               
-
-            </div>
-        </div>
-    </div>
     <!-- Product End -->
 
 
