@@ -65,6 +65,9 @@ Route::get('/minha-rota', function () {
 });
 
 
+//Rota para pagina produtos-total
+Route::get('/produtos-total','ProdutosController@indexProdutos');
+
 
 // Rota para a deleção e a nova mostra do produto
 

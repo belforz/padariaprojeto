@@ -103,8 +103,8 @@
      <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center" style ="height:50%;">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Cadastre um produto</h3>
-            <p class="blue-text">Crie um produto<br> e tenha controle do seu estoque</p>
+            <h3>Veja seu estoque</h3>
+            <!-- <p class="blue-text">Crie um produto<br> e tenha controle do seu estoque</p>
             <div class="card">
                 <form class="form-card" action="/produtos" method="post" enctype="multipart/form-data">
                     <div class="row justify-content-between text-left">
@@ -118,9 +118,9 @@
             <option value="Salgado">Salgado</option>
             <option value="Doce">Doce</option>
             <option value="Bebida">Bebida</option>
-            <option value="Massa">Massa</option>
+            <option value="Massa">Massa</option> -->
             <!-- Adicione outras opções do ENUM aqui -->
-        </select>
+        <!-- </select>
                     
                     </div>
                        
@@ -136,34 +136,29 @@
                     <div class="row justify-content-end">
                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" value="Salvar">Cadastrar Produto</button> </div>
                     </div>
-                </form>
+                </form> -->
     <section class="table" style="margin-top:inherit;">
 
     <table class="table table-bordered">
   <thead>
     <tr>
-    <th scope="col">Valor</th>
+    <!-- <th scope="col"></th> -->
       <th scope="col">#</th>
       <th scope="col">Nome do Produto</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Quantidade</th>
+      <!-- <th scope="col">Descrição</th>
+      <th scope="col">Categoria</th> -->
+      <th scope="col">Total de valores por quantidade</th>
       
-     <th scope="col">Imagem</th>
+     <!-- <th scope="col">Imagem</th> -->
       
     </tr>
   </thead>
   <tbody>
     @foreach($produtos as $p)
       <tr>
-        <td>{{$p->valor_inicial}}</td>
-        <th scope="row">{{$p->idProduto}}</th>
-        <td>{{$p->Pnome}}</td>
-        <td>{{$p->Descricao}}</td>
-        <td>{{$p->categoria}}</td>
-        <td>{{$p->quantidade}}</td>
-        
-        <td><img src="{{ asset('storage/uploads/' . $p->imagem)}}" alt="Imagem do Produto"></td>
+      <th scope="row">{{ $p->id }}</th>
+                <td>{{ $p->nome_produto }}</td>
+                <td>{{ $p->valor_total_produto }}</td>
         
       </tr>
     @endforeach

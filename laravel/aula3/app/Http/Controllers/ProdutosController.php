@@ -55,6 +55,11 @@ class ProdutosController extends Controller
         return $produtos;
     }
 
+    public function indexProdutos(){
+        $sql = "select * from produtos_quantidades";
+        $produtos = DB::select($sql);
+        return view('produtos-total', compact('produtos'));
+    }
 
     /**
      * Show the form for creating a new resource.
