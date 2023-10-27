@@ -55,6 +55,16 @@ class ProdutosController extends Controller
         return $produtos;
     }
 
+    // public function indexProdutos2(){
+    //     $sql = "select
+    //     idProduto AS id,
+    //     Pnome AS nome_produto,
+    //     (valor_inicial * quantidade) AS valor_total_produto FROM produto GROUP BY idProduto, Pnome;"
+    //     $produtos = DB::select($sql);
+    //     return view('produtos-total', compact('produtos'));
+    // }
+
+
     public function indexProdutos(){
         $sql = "select * from produtos_quantidades";
         $produtos = DB::select($sql);
@@ -83,7 +93,17 @@ class ProdutosController extends Controller
         $imagem = $request->file('imagem');
         $nomeArquivo = uniqid() . '.' . $imagem->getClientOriginalExtension();
         $caminho = $imagem->storeAs('uploads', $nomeArquivo);
+        // $image = $request->file('txUrlImgCurso');
 
+        // if($image == null){
+        //     $path = "";
+        // }else{
+        //     $path = $image->store('images','public');
+        // }
+     
+        $curso->urlImgCurso = $path;
+
+        $curso->save();
         $produtos->Pnome = $request->txPnome;
         $produtos->Descricao = $request->txDescricao;
         $produtos ->Categoria = $request->txCategoria;
@@ -163,6 +183,11 @@ class ProdutosController extends Controller
         return response()->json([
             'message'=> 'Dados excluídos com sucesso',
             'code'=>200]); 
+    }
+
+    public function graphicChart(){
+
+
     }
 
 

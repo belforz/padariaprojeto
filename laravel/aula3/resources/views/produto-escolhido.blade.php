@@ -237,7 +237,7 @@
     @endforeach
 
 </div>
-                 <!-- <table class="table">
+                  <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Valor</th>
@@ -249,8 +249,8 @@
                             <th scope="col">Imagem</th>
                             <th scope="col">Ação</th>
                         </tr>
-                    </thead> -->
-                    <!-- <tbody>
+                    </thead> 
+                     <tbody>
                         <tr>
                             <td>{{ $p->valor_inicial }}</td>
                             <td>{{ $p->idProduto }}</td>
@@ -269,19 +269,8 @@
 
 <br />
 
-@foreach($produtos as $p)
 
-    {{$p->idProduto}}
-    <a href="/produto/escolhido/{{$p->idProduto}}"> 
-        {{$p->produtos}}
-    </a>
-    {{$p->descrProduto}}
-    {{$p->valor}}
-    {{$p->dtCadastro}}
-    <a href="/produto/excluir/{{$p->idProduto}}"> Excluir </a>
-    <br />
-@endforeach -->
-                <!-- </table> --> 
+                 </table>  
           
 
 

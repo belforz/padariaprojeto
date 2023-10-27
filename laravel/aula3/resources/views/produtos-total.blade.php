@@ -165,10 +165,33 @@
   </tbody>
 </table>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn("string", "Produto");
+        data.addColumn("number", "Quantidade");
+        
+        @foreach($produtos as $p)
+            data.addRow(["{{ $p->nome_produto }}", {{ $p->valor_total_produto }}]);
+        @endforeach
 
-            </div>
-        </div>
-    </div>
+        var options = {
+            title: "My Daily Activities",
+            pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById("donutchart"));
+        chart.draw(data, options);
+    }
+</script>
+<div id="donutchart" style="width: 900px; height: 500px; ;"></div>
+
+
+
+          
 </div>
     </div>
     <!-- Product End -->
