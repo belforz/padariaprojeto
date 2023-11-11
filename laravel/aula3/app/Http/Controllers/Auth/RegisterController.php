@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Http\Request;
+
 class RegisterController extends Controller
 {
     /*
@@ -37,6 +39,21 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function store(Request $request)
+    {
+        $user = new User();
+        $user->name = "Maria";
+        $user->email = "maria@gmail.com";
+        $user -> password = Hash::make("123456");        
+        $user->created_at = date('Y-m-d');
+        $user->updated_at = date('Y-m-d');        
+        $user ->save();
+
+        //Auth::login($user);
+
+      // return redirect('/')->with('mensagem', 'Usuário adicionado com sucesso!');;
     }
 
     /**

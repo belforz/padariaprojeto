@@ -81,6 +81,13 @@ Route::get('/produto-escolhido/escolhido/{id}','ProdutosController@show');
 Route::get('/download-csv', 'ProdutosController@download');
 
 
+// Rota para o login
+
+Route::get('/usuario', function () {
+    return view('usuario');
+});
+
+Route::post('/usuario','Auth\RegisterController@store');
 
 
 
