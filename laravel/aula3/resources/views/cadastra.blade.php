@@ -97,25 +97,57 @@
             </div>
         </div>
         <div class="login-clean">
-       
-    <form method="post" action="/login"> 
-    {{ csrf_field() }}
-        <h2 class="sr-only">Login</h2>
-        <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-        <div class="form-group">
-            <input class="form-control" type="text" name="name" placeholder="Usuário"> <!-- Use type="text" for username -->
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Senha">
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary btn-block" type="submit">Entrar</button>
-        </div>
-        <div class="form-group">
-        <a href="{{ url('/cadastra') }}" class="btn btn-primary btn-block">Cadastrar</a>
-        </div>
-        <a href="#" class="forgot">Esqueceu sua senha?</a>
+        
+        <form action="/cadastra" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="name"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="password"><br>
+
+        <!-- Campos de endereço -->
+        <label for="cep">CEP:</label><br>
+        <input type="text" id="cep" name="cep" onblur="buscarEndereco()"><br>
+
+        <label for="logradouro">Logradouro:</label><br>
+        <input type="text" id="logradouro" name="logradouro"><br>
+
+        <label for="bairro">Bairro:</label><br>
+        <input type="text" id="bairro" name="bairro"><br>
+
+        <label for="cidade">Cidade:</label><br>
+        <input type="text" id="cidade" name="cidade"><br>
+
+        <label for="estado">Estado:</label><br>
+        <input type="text" id="estado" name="estado"><br>
+
+        <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
     </form>
+
+    <script>
+        function buscarEndereco() {
+            var cep = document.getElementById('cep').value;
+
+            // Fazer a requisição HTTP à API de CEPs
+            $.get('https://viacep.com.br/ws/' + cep + '/json/', function (data) {
+                if (data.erro) {
+                    alert('CEP não encontrado.');
+                } else {
+                    // Preencher os campos de endereço com os dados retornados
+                    document.getElementById('logradouro').value = data.logradouro;
+                    document.getElementById('bairro').value = data.bairro;
+                    document.getElementById('cidade').value = data.localidade;
+                    document.getElementById('estado').value = data.uf;
+                }
+            });
+        }
+    </script>
+    
 
 </div>
 
@@ -145,6 +177,8 @@
 
 <!-- Template JavaScript -->
 <script src="{{ asset('js/main.js') }}"></script>
+
+
     
 </body>
 

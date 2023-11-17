@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Illuminate\Http\Request;
+//importar
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Hash;
+
 
 class RegisterController extends Controller
 {
@@ -29,7 +35,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/produtos-total';
 
     /**
      * Create a new controller instance.
@@ -43,17 +49,32 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = "Maria";
-        $user->email = "maria@gmail.com";
-        $user -> password = Hash::make("123456");        
-        $user->created_at = date('Y-m-d');
-        $user->updated_at = date('Y-m-d');        
-        $user ->save();
+        
 
-        //Auth::login($user);
+    
+    $user = new User();
+    
+   
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+    $user->password = Hash::make($request->input('password'));
+    $user->cep = $request->input('cep');
+    $user->logradouro = $request->input('logradouro');
+    $user->bairro = $request->input('bairro');
+    $user->cidade = $request->input('cidade');
+    $user->estado = $request->input('estado');
 
-      // return redirect('/')->with('mensagem', 'Usuário adicionado com sucesso!');;
+
+
+    // Set created_at and updated_at
+    // $user->created_at = now();
+    // $user->updated_at = now();        
+
+    // Save the user to the database
+    $user->save();
+
+    
+    return redirect('/login')->with('mensagem', 'Usuário adicionado com sucesso!');
     }
 
     /**
@@ -84,5 +105,20 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function verifyUser(Request $request){        
+
+        if(!Auth::attempt($request->only(['name','password']))){        
+            return redirect('/login');
+        }        
+        else{
+            return redirect('/produtos-total');        
+        }
+    }
+
+    public function logoutUser(Request $request){
+        Auth::logout();
+        return redirect('/login');  
     }
 }

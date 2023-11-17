@@ -7,19 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>lol</h1>
-<form action="/usuario" method="post">
+    <h1>CRIAR CONTA</h1>
+    <form action="/usuario" method="post">
         @csrf
        
-<label for="fname">Nome:</label><br>
-  <input type="text" id="nome" name="name"><br>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="name"><br>
 
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email">
-<br>
-  <label for="senha">Senha:</label><br>
-  <input type="password" id="senha" name="senha">
- <input type="submit" value="Criar" />
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="password"><br>
+
+        <input type="submit" value="Criar" />
     </form>
 </body>
 </html>

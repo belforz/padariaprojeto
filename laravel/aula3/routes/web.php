@@ -11,6 +11,9 @@
 |
 */
 
+use App\Http\Middleware\Authenticate;
+use Illuminate\Auth\AuthenticationException;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -89,5 +92,30 @@ Route::get('/usuario', function () {
 
 Route::post('/usuario','Auth\RegisterController@store');
 
+
+
+Route::get('/cadastra',function(){
+    return view('cadastra');
+});
+
+Route::post('/cadastra','Auth\RegisterController@store');
+
+// Route::get('login', function () {
+//     return view('login');
+// });
+
+Route::get('login',array('as'=>'login',function(){
+    return view('login');
+}));
+
+Route::post('/cadastra','Auth\RegisterController@store');
+
+Route::post('login','Auth\RegisterController@verifyUser');
+
+Route::get('/logout','Auth\RegisterController@logoutUser');
+
+Route::get('/produtos-total', function () {
+    return view('produtos-total');
+})->middleware('auth');
 
 
