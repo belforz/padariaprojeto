@@ -33,19 +33,19 @@ class RegisterController extends Controller
     /**
      * Where to redirect users after registration.
      *
-     * @var string
+   
      */
-    protected $redirectTo = '/produtos-total';
+    // protected $redirectTo = '/produtos-total';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // /**
+    //  * Create a new controller instance.
+    //  *
+    //  * @return void
+    //  */
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     public function store(Request $request)
     {
@@ -113,7 +113,7 @@ class RegisterController extends Controller
             return redirect('/login');
         }        
         else{
-            return redirect('/produtos-total');        
+            return redirect('/index');        
         }
     }
 

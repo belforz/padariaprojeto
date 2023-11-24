@@ -50,11 +50,11 @@ Route::get('login', function () {
     return view('login');
 });
 
-// Show the login form
-Route::get('/login', 'LoginController@login');
+// // Show the login form
+// Route::get('/login', 'LoginController@login');
 
-// Handle the login form submission
-Route::post('/login', 'LoginController@login');
+// // Handle the login form submission
+// Route::post('/login', 'LoginController@login');
 
 use Illuminate\Support\Facades\Http;
 
@@ -104,9 +104,9 @@ Route::post('/cadastra','Auth\RegisterController@store');
 //     return view('login');
 // });
 
-Route::get('login',array('as'=>'login',function(){
+Route::get('login',function(){
     return view('login');
-}));
+});
 
 Route::post('/cadastra','Auth\RegisterController@store');
 
@@ -114,8 +114,23 @@ Route::post('login','Auth\RegisterController@verifyUser');
 
 Route::get('/logout','Auth\RegisterController@logoutUser');
 
-Route::get('/produtos-total', function () {
-    return view('produtos-total');
-})->middleware('auth');
+// Route::get('/produtos-total', function () {
+//     return view('produtos-total');
+// })->middleware('auth');
 
+
+// index
+Route::get('/index', 'ProdutosController@indexProdutos')->middleware('auth');
+Route::post('/login', 'Auth\RegisterController@verifyUser')->name('login');
+
+
+
+
+Route::get('/dashboardfinal',function(){
+    return view('dashboardfinal');
+});
+
+Route::get('/home',function(){
+    return view ('home');
+});
 

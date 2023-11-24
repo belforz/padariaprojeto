@@ -68,7 +68,7 @@ class ProdutosController extends Controller
     public function indexProdutos(){
         $sql = "select * from produtos_quantidades";
         $produtos = DB::select($sql);
-        return view('produtos-total', compact('produtos'));
+        return view('index', compact('produtos'));
     }
 
     /**
@@ -101,9 +101,9 @@ class ProdutosController extends Controller
         //     $path = $image->store('images','public');
         // }
      
-        $curso->urlImgCurso = $path;
+        // $curso->urlImgCurso = $caminho;
 
-        $curso->save();
+        // $curso->save();
         $produtos->Pnome = $request->txPnome;
         $produtos->Descricao = $request->txDescricao;
         $produtos ->Categoria = $request->txCategoria;
